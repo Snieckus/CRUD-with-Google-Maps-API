@@ -1,6 +1,7 @@
 <?php
-include_once('includes/header.php');
-include_once('includes/database.php');
+include_once 'includes/header.php';
+include_once 'includes/database.php';
+include_once 'sql.php';
 ?>
 <div class="container">
     <h3>Add new country</h3>
@@ -13,9 +14,9 @@ include_once('includes/database.php');
                 Country code(ISO):<br>
                 <input type="text" name="iso" pattern="[A-Z]{2}/[A-Z]{3}" oninvalid="setCustomValidity('Please enter format [aa/aaa]')" required><br><br>
                 <input type="submit" value="Submit">
-            </form>  
+            </form>
             </td>
         </tr>
-    </table>  
+    </table>
 </div>
-<?php include_once('includes/footer.php'); ?>
+<?php include_once 'includes/footer.php';?>

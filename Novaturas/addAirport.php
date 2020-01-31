@@ -1,10 +1,11 @@
 <?php
-include_once('includes/header.php');
-include_once('includes/database.php');
-include_once('includes/mapScript.php');
+include_once 'includes/header.php';
+include_once 'includes/database.php';
+include_once 'includes/mapScript.php';
+include_once 'sql.php';
 ?>
 <div class="container">
-    <h3>Add new country</h3>
+    <h3>Add new airport</h3>
     <h4>Click and drag somewhere</4h>
 <div id="myMap"></div>
 <form action="addNewAirportFinal.php" method="POST">
@@ -17,5 +18,5 @@ include_once('includes/mapScript.php');
 </form>
 </div>
 <?php
-include_once('includes/footer.php');
+include_once 'includes/footer.php';
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2020 at 02:37 PM
+-- Generation Time: Jan 31, 2020 at 07:52 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -34,6 +34,14 @@ CREATE TABLE `airlines` (
   `countryId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `airlines`
+--
+
+INSERT INTO `airlines` (`id`, `name`, `countryId`) VALUES
+(27, 'ASSS', 83),
+(29, 'ASS', 83);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +56,13 @@ CREATE TABLE `airport` (
   `countryId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `airport`
+--
+
+INSERT INTO `airport` (`id`, `name`, `latitude`, `longitude`, `countryId`) VALUES
+(30, 'LVO', '56.845962995190554', '26.1945897368164', 88);
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +74,13 @@ CREATE TABLE `airportairlines` (
   `airportId` int(11) NOT NULL,
   `airlinesId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `airportairlines`
+--
+
+INSERT INTO `airportairlines` (`id`, `airportId`, `airlinesId`) VALUES
+(26, 30, 29);
 
 -- --------------------------------------------------------
 
@@ -73,6 +95,28 @@ CREATE TABLE `country` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`id`, `iso`, `name`) VALUES
+(83, 'AF/AFG', 'Afghanistan'),
+(84, 'AL/ALB', 'Albania'),
+(85, 'DZ/DZA', 'Algeria'),
+(94, 'DK/DNK', 'Denmark'),
+(89, 'EE/EST', 'Estonia'),
+(95, 'FI/FIN', 'Finland'),
+(92, 'DE/DEU', 'Germany'),
+(98, 'IT/ITA', 'Italy'),
+(93, 'JP/JPN', 'Japan'),
+(88, 'LV/LVA', 'Latvia'),
+(86, 'LT/LTU', 'Lithuania'),
+(96, 'NO/NOR', 'Norway'),
+(90, 'PL/POL', 'Poland'),
+(91, 'RU/RUS', 'Russia'),
+(87, 'ES/ESP', 'Spain'),
+(97, 'SE/SWE', 'Sweden');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -81,6 +125,7 @@ CREATE TABLE `country` (
 --
 ALTER TABLE `airlines`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
   ADD KEY `countryId` (`countryId`);
 
 --
@@ -88,6 +133,7 @@ ALTER TABLE `airlines`
 --
 ALTER TABLE `airport`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`,`latitude`,`longitude`),
   ADD KEY `countryId` (`countryId`);
 
 --
@@ -102,7 +148,8 @@ ALTER TABLE `airportairlines`
 -- Indexes for table `country`
 --
 ALTER TABLE `country`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`,`iso`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -112,25 +159,25 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `airlines`
 --
 ALTER TABLE `airlines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `airport`
 --
 ALTER TABLE `airport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `airportairlines`
 --
 ALTER TABLE `airportairlines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- Constraints for dumped tables
