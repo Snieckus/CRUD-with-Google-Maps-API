@@ -1,4 +1,2 @@
-# Novaturas
-Novaturui atlikta testine uzduotis
-Uzduotis: faile MatasJasiulis
+CRUD with Google Maps API
 
